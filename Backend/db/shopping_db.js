@@ -116,7 +116,7 @@ const addProduct = async(req, res) => {
     price: req.body.price,
     category: req.body.category,
     quantity: req.body.quantity,
-    thumbnail: req.body.thumbnail,
+    //thumbnail: req.body.thumbnail,
     pro_picture: req.body.pro_picture
   };
 
@@ -129,8 +129,8 @@ const addProduct = async(req, res) => {
 
       const disc_id = results.rows[0].discount_id;
       //Sub query
-      client.query(`INSERT INTO products (name, description, pro_price, pro_category, quantity, thumbnail, discount_id, pro_picture) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-        [item.name, item.description, item.price, item.category, item.quantity, item.thumbnail, disc_id, item.pro_picture],
+      client.query(`INSERT INTO products (name, description, pro_price, pro_category, quantity, discount_id, pro_picture) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        [item.name, item.description, item.price, item.category, item.quantity, disc_id, item.pro_picture],
 
       (error, results) => {
           if (error) {

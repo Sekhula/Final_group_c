@@ -1,10 +1,12 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-const port = 3000 
-const db_shopping = require('../db/shopping_db') //Including user's crud file for quering the database CRUD
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 3000;
+const db_shopping = require('../db/shopping_db'); //Including user's crud file for quering the database CRUD
+const cors = require('cors');
 
 app.use(express.json())
+app.use(cors());
 app.use(
    bodyParser.urlencoded({
       extended: true,
@@ -16,18 +18,19 @@ app.get('/', (req, res) =>{
 })
 
 //====User=quiring=endpoints=Routes=path=binding=to=URL======= 
-app.get('/users', db_shopping.getUsers)
-app.get('/users/:id', db_shopping.getUserById)
-app.post('/users', db_shopping.createUser)
-app.put('/users/:id', db_shopping.updateUser)
-app.delete('/users/:id', db_shopping.deleteUser)
+app.get('/api/users', db_shopping.getUsers)
+app.get('/api/users/:id', db_shopping.getUserById)
+app.post('/api/users', db_shopping.createUser)
+app.put('/api/users/:id', db_shopping.updateUser)
+app.delete('/api/users/:id', db_shopping.deleteUser)
 //============================================================
 //====Products=querying=endpoint=Routes=path=binding=to=URL===
-app.get('/products', db_shopping.getAllProducts)
-app.get('/products/:id', db_shopping.getProductById)
-app.post('/products', db_shopping.addProduct)
-app.put('/products/:id', db_shopping.updateProductsDetails)
-app.delete('/products/:id', db_shopping.deleteProductById)
+app.post('/api/shopping/products', db_shopping.addProduct)
+app.get('/api/products', db_shopping.getAllProducts)
+
+app.get('/api/products/:id', db_shopping.getProductById)
+app.put('/api/products/:id', db_shopping.updateProductsDetails)
+app.delete('/api/products/:id', db_shopping.deleteProductById)
 //============================================================
 
 app.listen(port, () =>{
