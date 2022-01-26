@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000 
-const db_shopping = require('../db/online_db') //Including user's crud file for quering the database CRUD
+const db_shopping = require('../db/shopping_db') //Including user's crud file for quering the database CRUD
 
 app.use(express.json())
 app.use(
