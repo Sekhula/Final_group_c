@@ -1,4 +1,4 @@
-<div style="width: 500px; margin: auto;">
+<div class="width: 500px; margin: auto;">
     <div class="submit-form">
       <div *ngIf="!submitted">
         <div class="form-group">
@@ -28,10 +28,10 @@
             <label for="description">Product Price</label>
             <input
               class="form-control"
-              id="pro_price"
+              id="price"
               required
-              [(ngModel)]="product.pro_price"
-              name="pro_price"
+              [(ngModel)]="product.price"
+              name="price"
             />
           </div>
 
@@ -41,8 +41,8 @@
               class="form-control"
               id="category"
               required
-              [(ngModel)]="product.pro_category"
-              name="pro_category"
+              [(ngModel)]="product.category"
+              name="category"
             />
           </div>
 

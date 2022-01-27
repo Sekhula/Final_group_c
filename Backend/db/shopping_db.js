@@ -122,19 +122,20 @@ const addProduct = async(req, res) => {
 
   const disc = "discount for " + item.name;
   const discount = 0;
-  
+  console.log(item);
+
   client.query(`INSERT INTO discount(discount_perc, description) values($1, $2) returning discount_id`,
     [discount, disc],
     (error, results) => {
 
       const disc_id = results.rows[0].discount_id;
       //Sub query
-      client.query(`INSERT INTO products (name, description, pro_price, pro_category, quantity, discount_id, pro_picture) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+      client.query(`INSERT INTO products (name, description, pro_price, pro_category, quantity, discount_id, pro_picture) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
         [item.name, item.description, item.price, item.category, item.quantity, disc_id, item.pro_picture],
 
       (error, results) => {
           if (error) {
-            console.log(error)
+            console.log(error);
             throw error;
           }
        }
@@ -150,7 +151,7 @@ const addProduct = async(req, res) => {
 
 //PUT updated data in an exisiting user
 const updateProductsDetails = (req, res) => {
-const id = parseInt(req.params.id)
+const id = parseInt(req.params.id);
 const item = {
   name: req.body.name,
   description: req.body.description,

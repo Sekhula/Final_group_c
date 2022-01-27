@@ -1,19 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-
-/* @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
- })*/
-// export class AddProductComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 
@@ -26,8 +10,8 @@ export class AddProductComponent implements OnInit {
   product = {
     name: '',
     description: '',
-    pro_price: '',
-    pro_category: '',
+    price: '',
+    category: '',
     quantity: '',
     pro_picture: ''
   };
@@ -41,7 +25,12 @@ export class AddProductComponent implements OnInit {
   createProduct(): void {
     const data = {
       name: this.product.name,
-      description: this.product.description
+      description: this.product.description,
+      price: this.product.price,
+      category: this.product.category,
+      quantity: this.product.quantity,
+      //thumbnail: req.body.thumbnail,
+      pro_picture: this.product.pro_picture
     };
 
     this.productService.create(data)
@@ -60,8 +49,8 @@ export class AddProductComponent implements OnInit {
     this.product = {
       name: '',
       description: '',
-      pro_price: '',
-      pro_category: '',
+      price: '',
+      category: '',
       quantity: '',
       pro_picture: ''
     };
