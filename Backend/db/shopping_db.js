@@ -1,6 +1,6 @@
 const client = require('../app/connect');
 
-client.connect(); // Connect to database
+// client.connect(); // Connect to database
 
 //Get All users in a DATABASE
 const getUsers = (req, res) =>{
