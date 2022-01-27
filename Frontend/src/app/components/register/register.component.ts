@@ -48,6 +48,6 @@ export class RegisterComponent implements OnInit {
   }
   submit(){
     console.log(this.form.value);
-    this.userService.register(this.form.value)
+    this.userService.create(this.form.value).subscribe();
   }
 }

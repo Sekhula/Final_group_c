@@ -1,9 +1,10 @@
-const express = require('express'); //iporting express module
+const express = require('express'); //importing express module
 const bodyParser = require('body-parser'); //importing the body-parser
 const app = express(); //Assigning express module to app
 const port = 3000; //Declaring a port variable and asign a port value to it
 const db_shopping = require('../db/shopping_db'); //Including user's crud file for quering the database CRUD
 const cors = require('cors'); //Importing cors api from cors module
+const client = require('../app/connect');
 
 app.use(express.json()); // Defining the data structure that the app should use or recognize
 app.use(cors());         // Enabling the app to use the cors for routing for frontend communication
@@ -16,6 +17,8 @@ app.use(
 app.get('/', (req, res) =>{
  res.json({info: 'Node.js, Express, and Postgres API'});
 })
+
+client.connect();
 
 //====User=quiring=endpoints=Routes=path=binding=to=URL======= 
 app.get('/api/users', db_shopping.getUsers);

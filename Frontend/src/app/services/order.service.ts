@@ -1,38 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class userServiceService {
-  httpClient: any;
+export class OrderService {
 
-  constructor(private http: HttpClient, private router: Router,) { }
+  private baseURL = 'http://localhost:3000/api/order';
 
-  // login(body:any) {
-  //   return this.http.post(`${environment.loginUrl}`, body).subscribe((user)=>{
-  //     localStorage.setItem('user', JSON.stringify(user));
-  //   })
-
-  //  }
-
-  // logout() {
-  //     // remove user from local storage and set current user to null
-  //     localStorage.removeItem('user');
-
-  //     this.router.navigate(['/account/login']);
-  // }
-
-  // register(body:any) {
-  //     return this.http.post(`${environment.registerUrl}`, body);
-  // }
-  
-  private baseURL = 'http://localhost:3000/api/users';
-
-  // constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   //Geting all products from the db
   readAll(): Observable<any> {
@@ -58,8 +35,8 @@ export class userServiceService {
   deleteAll(): Observable<any> {
     return this.httpClient.delete(this.baseURL);
   }
-// //Get the product by searching
-//   searchByName(name: any): Observable<any> {
-//     return this.httpClient.get(`${this.baseURL}?name=${name}`);
-//   }
+//Get the product by searching
+  // searchByName(name: any): Observable<any> {
+  //   return this.httpClient.get(`${this.baseURL}?name=${name}`);
+  // }
 }
