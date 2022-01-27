@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class OrderService {
 
-  private baseURL = 'http://localhost:3000/api/users';
+  private baseURL = 'http://localhost:3000/api/order';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -35,8 +35,8 @@ export class UserServiceService {
   deleteAll(): Observable<any> {
     return this.httpClient.delete(this.baseURL);
   }
-// //Get the product by searching
-//   searchByName(name: any): Observable<any> {
-//     return this.httpClient.get(`${this.baseURL}?name=${name}`);
-//   }
+//Get the product by searching
+  // searchByName(name: any): Observable<any> {
+  //   return this.httpClient.get(`${this.baseURL}?name=${name}`);
+  // }
 }

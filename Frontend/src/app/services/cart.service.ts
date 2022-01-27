@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class CartService {
 
-  private baseURL = 'http://localhost:3000/api/users';
+  private baseURL = 'http://localhost:3000/api/cart';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,9 +16,9 @@ export class UserServiceService {
     return this.httpClient.get(this.baseURL);
   }
   //Getting a product by speciefied ID
-  read(id: number): Observable<any> {
-    return this.httpClient.get(`${this.baseURL}/${id}`);
-  }
+  // read(id: number): Observable<any> {
+  //   return this.httpClient.get(`${this.baseURL}/${id}`);
+  // }
 //Adding a product to the db
   create(data: any): Observable<any> {
     return this.httpClient.post(this.baseURL, data);
@@ -32,9 +32,9 @@ export class UserServiceService {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 //Delete all products in the db
-  deleteAll(): Observable<any> {
-    return this.httpClient.delete(this.baseURL);
-  }
+  // deleteAll(): Observable<any> {
+  //   return this.httpClient.delete(this.baseURL);
+  // }
 // //Get the product by searching
 //   searchByName(name: any): Observable<any> {
 //     return this.httpClient.get(`${this.baseURL}?name=${name}`);
