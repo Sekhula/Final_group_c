@@ -34,8 +34,7 @@ export class AddProductComponent implements OnInit {
     };
 
     this.productService.create(data)
-      .subscribe(
-        response => {
+      .subscribe(response => {
           console.log(response);
           this.submitted = true;
         },

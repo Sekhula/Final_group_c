@@ -1,18 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+// import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
-  login(value: any) {
-    throw new Error('Method not implemented.');
-  }
+export class userServiceService {
+  httpClient: any;
 
+  constructor(private http: HttpClient, private router: Router,) { }
+
+  // login(body:any) {
+  //   return this.http.post(`${environment.loginUrl}`, body).subscribe((user)=>{
+  //     localStorage.setItem('user', JSON.stringify(user));
+  //   })
+
+  //  }
+
+  // logout() {
+  //     // remove user from local storage and set current user to null
+  //     localStorage.removeItem('user');
+
+  //     this.router.navigate(['/account/login']);
+  // }
+
+  // register(body:any) {
+  //     return this.http.post(`${environment.registerUrl}`, body);
+  // }
+  
   private baseURL = 'http://localhost:3000/api/users';
 
-  constructor(private httpClient: HttpClient) { }
+  // constructor(private httpClient: HttpClient) { }
 
   //Geting all products from the db
   readAll(): Observable<any> {
