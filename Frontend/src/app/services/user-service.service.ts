@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserServiceService {
+  login(value: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private baseURL = 'http://localhost:3000/api/users';
 
