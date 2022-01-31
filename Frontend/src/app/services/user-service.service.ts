@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class userServiceService {
-  httpClient: any;
+  // httpClient: any;
 
-  constructor(private http: HttpClient, private router: Router,) { }
+  constructor(private httpClient: HttpClient, private router: Router,) { }
 
   // login(body:any) {
   //   return this.http.post(`${environment.loginUrl}`, body).subscribe((user)=>{
@@ -44,7 +44,8 @@ export class userServiceService {
   }
 //Adding a product to the db
   create(data: any): Observable<any> {
-    return this.httpClient.post(this.baseURL, data);
+    console.log(data);
+    return this.httpClient.post(`${this.baseURL}`, data);
   }
 //Update or modify the specified product
   update(id: number, data: any): Observable<any> {

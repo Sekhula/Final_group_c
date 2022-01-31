@@ -28,26 +28,37 @@ const getUserById = (req, res) => {
 //POST a new user
 const createUser = (req, res) => {
   const user = {
-    name: req.body.name,
-    username: req.body.email,
-    password: req.body.password, 
-    address: req.body.address,
+    name: req.body.full_names,
+    password: req.body.password,
     email: req.body.email,
-    mobile_number: req.body.mobile
-  }
+    mobile_number: req.body.mobile_number
+  };
    
-  //console.log();
-  client.query(`INSERT INTO users (full_names, password, email, address, mobile) VALUES ($1, $2, $3, $4, $5)`,
-  [user.name, user.password, user.email, user.address, user.mobile_number],
+  console.log(user);
 
-  (error, results) => {
-    if (error) {
-      res.status(400).send(error);
-      throw error;
+  // const  data  = client.query(`SELECT * FROM users WHERE email= $1`, [user.email], (error, results)); //Checking if user already exists
+  // const  arr  =  data.rows;  
+
+  // if (arr  !=  0) {
+  //   return  res.status(400).json({
+  //   error: "Email already there, No need to register again.",
+  //   });
+  // }
+  // else
+  // {
+    client.query(`INSERT INTO users (full_names, password, email, mobile_number) VALUES ($1, $2, $3, $4)`,
+    [user.name, user.password, user.email, user.mobile_number],
+
+    (error, results) => {
+      if (error) {
+        res.status(400).send(error);
+        throw error;
+      }
+      res.status(201).send(`User added with ID:${results}`);
     }
-    res.status(201).send(`User added with ID:${results}`);
-  }
-  );
+    );
+  // }
+  
 };
 
 //PUT updated data in an exisiting user

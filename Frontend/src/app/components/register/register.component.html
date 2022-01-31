@@ -87,11 +87,11 @@
                     <div class="col-sm-offset-6 right">
                         <div class="form-group">
                             <label for="name">Full Names</label>
-                            <input formControlName="fullnames" id="fullnames" type="text" class="form-control">
-                            <div *ngIf="f['fullnames'].touched && f['fullnames'].invalid" class="alert alert-danger">
-                                <div *ngIf="f['fullnames'].errors && f['fullnames'].errors['required']">Name is
+                            <input formControlName="full_names" id="full_names" type="text" class="form-control">
+                            <div *ngIf="f['full_names'].touched && f['full_names'].invalid" class="alert alert-danger">
+                                <div *ngIf="f['full_names'].errors && f['full_names'].errors['required']">Name is
                                     required.</div>
-                                <div *ngIf="f['fullnames'].errors && f['fullnames'].errors['minlength']">Name should be
+                                <div *ngIf="f['full_names'].errors && f['full_names'].errors['minlength']">Name should be
                                     3 character.</div>
                             </div>
                         </div>
@@ -121,12 +121,12 @@
 
                         <div class="form-group">
                             <label for="name">Mobile Number</label>
-                            <input formControlName="mobileNumber" id="mobileNumber" type="text" class="form-control">
-                            <div *ngIf="f['mobileNumber'].touched && f['mobileNumber'].invalid"
+                            <input formControlName="mobile_number" id="mobile_number" type="text" class="form-control">
+                            <div *ngIf="f['mobile_number'].touched && f['mobile_number'].invalid"
                                 class="alert alert-danger">
-                                <div *ngIf="f['mobileNumber'].errors && f['mobileNumber'].errors['required']">Mobile
+                                <div *ngIf="f['mobile_number'].errors && f['mobile_number'].errors['required']">Mobile
                                     number is required.</div>
-                                <div *ngIf="f['mobileNumber'].errors && f['mobileNumber'].errors['minlength']">Mobile
+                                <div *ngIf="f['mobile_number'].errors && f['mobile_number'].errors['minlength']">Mobile
                                     number should be 10 character.</div>
                             </div>
                         </div>

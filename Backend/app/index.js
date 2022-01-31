@@ -5,6 +5,7 @@ const port = 3000; //Declaring a port variable and asign a port value to it
 const db_shopping = require('../db/shopping_db'); //Including user's crud file for quering the database CRUD
 const cors = require('cors'); //Importing cors api from cors module
 const client = require('../app/connect');
+const address = "0.0.0.0"
 
 app.use(express.json()); // Defining the data structure that the app should use or recognize
 app.use(cors());         // Enabling the app to use the cors for routing for frontend communication
@@ -40,4 +41,3 @@ app.delete('/api/products/:id', db_shopping.deleteProductById);
 app.listen(port, () =>{
 console.log(`App running on Port: ${port}.`)
 });
-

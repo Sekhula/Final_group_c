@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { userServiceService } from 'src/app/services/user-service.service';
+// import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',

@@ -33,12 +33,12 @@ export class RegisterComponent implements OnInit {
     // }, formOptions);
 
     this.form = this.formBuilder.group({
-        fullnames: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        full_names: new FormControl('', [Validators.required, Validators.minLength(4)]),
         // lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required, Validators.minLength(8)]),
-        // confirmPassword: [''],
-        mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^((\+27-?)|0)?[0-9]{10}$")]),
+        confirmPassword: [''],
+        mobile_number: new FormControl('', [Validators.required])
       });
 
   }
